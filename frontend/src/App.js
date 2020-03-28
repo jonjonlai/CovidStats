@@ -203,9 +203,9 @@ class App extends React.Component {
       <div id="main">
       {this.state.country ? <h1> {this.state.country} Covid Statistics as of {currentTimeFormmated}</h1> : <h1>Covid Statistics as of {currentTimeFormmated}</h1>}
           {this.state.world ? <div id="world">
-          <div id="total"> Total Cases <br></br> <div id="number">{this.state.world.total_cases}</div></div> 
-          <div id="total"> Total Deaths <br></br> <div id="number">{this.state.world.total_deaths}</div></div> 
-          <div id="total">Worldwide Mortality Rate <br></br> <div id="number">{(parseFloat((this.state.world.total_deaths).replace(/,/g, '')) / parseFloat((this.state.world.total_cases).replace(/,/g, '')) * 100).toFixed(2)} %</div></div>
+          <div id="total"> Total Cases: <br></br> <div id="number">{this.state.world.total_cases}</div></div> 
+          <div id="total"> Total Deaths: <br></br> <div id="number">{this.state.world.total_deaths}</div></div> 
+          <div id="total">Worldwide Mortality Rate: <br></br> <div id="number">{(parseFloat((this.state.world.total_deaths).replace(/,/g, '')) / parseFloat((this.state.world.total_cases).replace(/,/g, '')) * 100).toFixed(2)} %</div></div>
           </div> : <div></div>}
 
       {this.state.affected ? <select onChange={this.handleChange}>
@@ -220,12 +220,12 @@ class App extends React.Component {
       {this.renderData()}
 
       {this.state.data ? <div id="current">
-          <div id="total"> Active Cases <br></br> <div id="number">{last.active_cases}</div></div>
-          <div id="total">Active Case Percentage <br></br> <div id="number">{(parseFloat((last.active_cases).replace(/,/g, '')) / parseFloat((last.total_cases).replace(/,/g, '')) * 100).toFixed(2)} %</div></div>
-          <div id="total"> Total Deaths <br></br> <div id="number">{last.total_deaths}</div></div>
-          <div id="total">Mortality Rate <br></br> <div id="number">{(parseFloat((last.total_deaths).replace(/,/g, '')) / parseFloat((last.total_cases).replace(/,/g, '')) * 100).toFixed(2)} %</div></div>
-          <div id="total"> Total Recovered <br></br> <div id="number">{last.total_recovered}</div></div>
-          <div id="total">Recovery Rate <br></br> <div id="number">{(parseFloat((last.total_recovered).replace(/,/g, '')) / parseFloat((last.total_cases).replace(/,/g, '')) * 100).toFixed(2)} %</div></div>
+          <div id="total"> Active Cases: <br></br> <div id="number">{last.active_cases}</div></div>
+          <div id="total">Active Case Percentage: <br></br> <div id="number">{(parseFloat((last.active_cases).replace(/,/g, '')) / parseFloat((last.total_cases).replace(/,/g, '')) * 100).toFixed(2)} %</div></div>
+          <div id="total"> Total Deaths: <br></br> <div id="number">{last.total_deaths}</div></div>
+          <div id="total">Mortality Rate: <br></br> <div id="number">{(parseFloat((last.total_deaths).replace(/,/g, '')) / parseFloat((last.total_cases).replace(/,/g, '')) * 100).toFixed(2)} %</div></div>
+          <div id="total"> Total Recovered: <br></br> <div id="number">{last.total_recovered}</div></div>
+          <div id="total">Recovery Rate: <br></br> <div id="number">{(parseFloat((last.total_recovered).replace(/,/g, '')) / parseFloat((last.total_cases).replace(/,/g, '')) * 100).toFixed(2)} %</div></div>
         </div> : <div></div>} 
 
       

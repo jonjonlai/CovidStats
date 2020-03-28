@@ -15,7 +15,7 @@ class App extends React.Component {
   }
 
   handleChange(e) {
-    axios.get(`http://localhost:9000/stats/country?string=${e.target.value}`)
+    axios.get(`/stats/country?string=${e.target.value}`)
       .then(res => this.setState({data: res.data.stat_by_country}));
   }
 
@@ -25,10 +25,10 @@ class App extends React.Component {
   }
 
   componentWillMount() {
-    axios.get(`http://localhost:9000/stats/world`)
+    axios.get(`/stats/world`)
       .then(res => this.setState({ world: res.data }));
 
-    axios.get(`http://localhost:9000/stats/affected`)
+    axios.get(`/stats/affected`)
       .then(res => this.setState({ affected: res.data }));
   }
   

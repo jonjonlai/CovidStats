@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require("cors");
+const PORT = process.env.PORT || 9000;
 
 var indexRouter = require('./views/routes/index');
 var usersRouter = require('./views/routes/users');

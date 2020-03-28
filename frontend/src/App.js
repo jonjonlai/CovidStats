@@ -62,7 +62,7 @@ class App extends React.Component {
       datasets: [
         {
           label: 'New Cases',
-          backgroundColor: 'rgba(75,192,192,1)',
+          backgroundColor: '#28334A',
           borderColor: 'rgba(0,0,0,1)',
           borderWidth: 2,
           data: newCases
@@ -118,7 +118,7 @@ class App extends React.Component {
       datasets: [
         {
           label: 'Total Cases',
-          backgroundColor: 'rgba(75,192,192,1)',
+          backgroundColor: '#28334A',
           borderColor: 'rgba(0,0,0,1)',
           borderWidth: 2,
           data: totalCases
@@ -176,11 +176,18 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state)
     let affected;
     if (this.state.affected) {
       affected = this.state.affected.affected_countries.sort()
     }
+
+    let last;
+    if (this.state.data) {
+      let lastIndex = this.state.data.length - 1;
+      last = this.state.data[lastIndex];
+    }
+
+    console.log(last)
     let date = new Date();
 
     const months = ["January", "February", "March", "April", "May", "June",
@@ -190,25 +197,38 @@ class App extends React.Component {
     let day = date.getDate()
     let year = date.getFullYear()
     let currentTimeFormmated = `${month} ${day}, ${year}`
+
+
     return (
       <div id="main">
       {this.state.country ? <h1> {this.state.country} Covid Statistics as of {currentTimeFormmated}</h1> : <h1>Covid Statistics as of {currentTimeFormmated}</h1>}
           {this.state.world ? <div id="world">
-            <label>Total Cases: {this.state.world.total_cases} cases</label>
-            <label>Total Deaths: {this.state.world.total_deaths} deaths</label>
-            <label>Worldwide Mortality Rate: {(parseFloat((this.state.world.total_deaths).replace(/,/g, '')) / parseFloat((this.state.world.total_cases).replace(/,/g, '')) * 100).toFixed(2)} %</label>
+          <div id="total"> Total Cases: <br></br> <div id="number">{this.state.world.total_cases}</div></div> 
+          <div id="total"> Total Deaths: <br></br> <div id="number">{this.state.world.total_deaths}</div></div> 
+          <div id="total">Worldwide Mortality Rate: <br></br> <div id="number">{(parseFloat((this.state.world.total_deaths).replace(/,/g, '')) / parseFloat((this.state.world.total_cases).replace(/,/g, '')) * 100).toFixed(2)} %</div></div>
           </div> : <div></div>}
 
-        {this.state.affected ? <select onChange={this.handleChange}>
-          <option >-- Select Country --</option>
-          {affected.map((country) => {
-            return (
-              <option value={country} >{country}</option>
-            )
-          })}
-        </select> : <div>na</div>}
+      {this.state.affected ? <select onChange={this.handleChange}>
+        <option >-- Select Country --</option>
+        {affected.map((country) => {
+          return (
+            <option id="option" value={country} >{country}</option>
+          )
+        })}
+      </select> : <div></div>}
 
       {this.renderData()}
+
+      {this.state.data ? <div id="current">
+          <div id="total"> Active Cases: <br></br> <div id="number">{last.active_cases}</div></div>
+          <div id="total">Active Case Percentage: <br></br> <div id="number">{(parseFloat((last.active_cases).replace(/,/g, '')) / parseFloat((last.total_cases).replace(/,/g, '')) * 100).toFixed(2)} %</div></div>
+          <div id="total"> Total Deaths: <br></br> <div id="number">{last.total_deaths}</div></div>
+          <div id="total">Mortality Rate: <br></br> <div id="number">{(parseFloat((last.total_deaths).replace(/,/g, '')) / parseFloat((last.total_cases).replace(/,/g, '')) * 100).toFixed(2)} %</div></div>
+          <div id="total"> Total Recovered: <br></br> <div id="number">{last.total_recovered}</div></div>
+          <div id="total">Recovery Rate: <br></br> <div id="number">{(parseFloat((last.total_recovered).replace(/,/g, '')) / parseFloat((last.total_cases).replace(/,/g, '')) * 100).toFixed(2)} %</div></div>
+        </div> : <div></div>} 
+
+      
 
       </div>
   );

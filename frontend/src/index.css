@@ -1,3 +1,7 @@
+html {
+  background: beige;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -13,12 +17,14 @@ code {
 }
 
 
+
 #main {
   display: flex;
   flex-direction: column;
   width: 100vw;
   justify-content: center;
   align-items: center;
+  
 }
 
 #line-graph {
@@ -29,9 +35,66 @@ code {
   display: flex;
   flex-direction: row;
   width: 100vw;
+  justify-content: center;
 }
 
 #world {
   display: flex;
+  width: 80vw;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#current {
+  margin-top: 3vh;
+  display: flex;
+  width: 90vw;
+  height: 20vh;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+
+#label {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100vw;
+}
+
+#total {
+  display: flex;
   flex-direction: column;
+  height: 100%;
+  background: #28334A;
+  color: #F65058;
+  font-size: 20px;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  flex: 1;
+  border: 2px solid blue;
+}
+
+
+
+#number {
+  color: #FBDE44;
+  font-size: 40px
+}
+
+select {
+  margin-top: 3vh;
+  width: 30vw;
+  height: 5vh;
+  margin-bottom: 3vh;
+}
+
+#option {
+  font-size: 30px;
+  width: 30vw;
+  height: 5vh;
 }

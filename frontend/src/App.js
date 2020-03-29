@@ -228,8 +228,6 @@ class App extends React.Component {
           <div id="total">Recovery Rate <br></br> <div id="number">{(parseFloat((last.total_recovered).replace(/,/g, '')) / parseFloat((last.total_cases).replace(/,/g, '')) * 100).toFixed(2)} %</div></div>
         </div> : <div></div>} 
 
-      
-
       </div>
   );
     }

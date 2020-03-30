@@ -1,5 +1,7 @@
 import React from 'react';
+import USA from "./USA"
 import './App.css';
+import { Link } from "react-router-dom"
 import { Line } from "react-chartjs-2"
 const axios = require('axios');
 
@@ -12,11 +14,16 @@ class App extends React.Component {
     super(props);
     this.state = { apiResponse: "" };
     this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange(e) {
     axios.get(`/stats/country?string=${e.target.value}`)
       .then(res => this.setState({data: res.data.stat_by_country}));
+  }
+
+  handleClick(e) {
+    console.log(this.props.history)
   }
 
   update(field) {
@@ -207,7 +214,6 @@ class App extends React.Component {
           <div id="total"> Total Deaths <br></br> <div id="number">{this.state.world.total_deaths}</div></div> 
           <div id="total">Worldwide Mortality Rate <br></br> <div id="number">{(parseFloat((this.state.world.total_deaths).replace(/,/g, '')) / parseFloat((this.state.world.total_cases).replace(/,/g, '')) * 100).toFixed(2)} %</div></div>
           </div> : <div></div>}
-
       {this.state.affected ? <select onChange={this.handleChange}>
         <option >-- Select Country --</option>
         {affected.map((country) => {
@@ -216,6 +222,8 @@ class App extends React.Component {
           )
         })}
       </select> : <div></div>}
+
+        <Link to="/USA"><label onClick={this.handleClick}>Click Here For USA Data</label></Link>
 
       {this.renderData()}
 

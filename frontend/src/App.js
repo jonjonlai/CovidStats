@@ -194,7 +194,6 @@ class App extends React.Component {
       last = this.state.data[lastIndex];
     }
 
-    console.log(last)
     let date = new Date();
 
     const months = ["January", "February", "March", "April", "May", "June",
@@ -205,6 +204,7 @@ class App extends React.Component {
     let year = date.getFullYear()
     let currentTimeFormmated = `${month} ${day}, ${year}`
 
+    console.log(this.state)
 
     return (
       <div id="main">

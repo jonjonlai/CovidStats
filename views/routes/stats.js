@@ -68,7 +68,7 @@ router.get('/affected', (request, response) => {
 
 
 router.get('/world', (request, response) => {
-    fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/worldstat.php", {
+    fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/world_total_stat.php", {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "coronavirus-monitor.p.rapidapi.com",

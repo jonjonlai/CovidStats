@@ -10,7 +10,6 @@ class USA extends React.Component {
             .then(res => this.setState({ USA: res.data }));
 
     }
-
     render() {
         console.log(this.state)
         return (

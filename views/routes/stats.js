@@ -40,14 +40,6 @@ router.get('/country', (request, response) => {
 });
 
 
-fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/affected.php", {
-    "method": "GET",
-    "headers": {
-        "x-rapidapi-host": "coronavirus-monitor.p.rapidapi.com",
-        "x-rapidapi-key": "7d771ac119mshc0c51908f94bb9ap1dc3bfjsn67097e894794"
-    }
-})
-
 router.get('/affected', (request, response) => {
     fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/affected.php", {
         "method": "GET",
@@ -68,7 +60,7 @@ router.get('/affected', (request, response) => {
 
 
 router.get('/world', (request, response) => {
-    fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/world_total_stat.php", {
+    fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/worldstat.php", {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "coronavirus-monitor.p.rapidapi.com",

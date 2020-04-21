@@ -9,6 +9,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  flex-direction: column;
 }
 
 code {
@@ -32,8 +34,8 @@ code {
 }
 
 .map {
-  height: 400px;
-  width: 100%;
+  height: 25vh;
+  width: 95vw;
 }
 
 #country-graphs {
@@ -71,12 +73,13 @@ code {
 }
 
 #total {
+  margin-top: 8vh;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 30vh;
   background: #28334A;
   color: #F65058;
-  font-size: 20px;
+  font-size: 2vh;
   justify-content: center;
   align-content: center;
   text-align: center;
@@ -88,7 +91,7 @@ code {
 
 #number {
   color: #FBDE44;
-  font-size: 40px
+  font-size: 2.5vh;
 }
 
 select {
@@ -99,7 +102,7 @@ select {
 }
 
 #option {
-  font-size: 30px;
+  font-size: 2.5vh;
   width: 30vw;
   height: 5vh;
 }

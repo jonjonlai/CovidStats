@@ -4,7 +4,7 @@ var router = express.Router();
 
 
 router.get('/USA', (request, response) => {
-    fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/johns_hopkins_united_states_latest.php?state=CA", {
+    fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/united_states_cases.php", {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "coronavirus-monitor.p.rapidapi.com",
@@ -76,6 +76,8 @@ router.get('/world', (request, response) => {
             response.send(results)
         });
 });
+
+
 
 
 

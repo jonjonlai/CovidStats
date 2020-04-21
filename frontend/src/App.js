@@ -37,6 +37,9 @@ class App extends React.Component {
 
     axios.get(`/stats/affected`)
       .then(res => this.setState({ affected: res.data }));
+
+    axios.get(`/stats/instructions`)
+      .then(res => this.setState({ instructions: res.data }));
   }
   
 
@@ -223,7 +226,7 @@ class App extends React.Component {
         })}
       </select> : <div></div>}
 
-        <Link to="/USA"><label onClick={this.handleClick}>Click Here For USA Data</label></Link>
+        {/* <Link to="/USA"><label onClick={this.handleClick}>Click Here For USA Data</label></Link> */}
 
       {this.renderData()}
 

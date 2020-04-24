@@ -19,8 +19,6 @@ code {
     monospace;
 }
 
-
-
 #main {
   display: flex;
   flex-direction: column;
